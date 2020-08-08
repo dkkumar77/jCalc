@@ -98,21 +98,26 @@ public class Controller {
             integer.add(currentString);
             Integer solution = Integer.parseInt(integer.get(0));
 
-            if(integer.size()% 2 == 0){
-                for(int i = 1; i < integer.size(); i++){
-                    for(int g = 0; g< operands.size(); g++){
+            if(integer.size() - operands.size() == 1){
+
+
+                for(int g = 0; g< operands.size(); g++){
                         if(operands.get(g).equals("+")){
-                            solution = solution + Integer.parseInt(integer.get(i));
+                            solution = solution + Integer.parseInt(integer.get(g+1));
                         }
                     }
                 }
                 output.setText(solution.toString());
+                currentString = solution.toString();
+                integer.clear();
+
+
 
             }
 
         }
 
-    }
+
 
     @FXML
     void handleModulus(ActionEvent event) {
